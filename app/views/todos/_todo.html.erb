@@ -1,0 +1,12 @@
+<li class="<%= "completed" if todo.completed? %>" id="<%= dom_id(todo) %>">
+  <div class="view">
+    <%= form_for(todo, url: toggle_todo_path(todo), method: :post, remote: true) do |f| %>
+      <%= f.check_box :completed, class: "toggle", "data-behavior" => "submit_on_check" %>
+    <% end %>
+    <label><%= todo.title %></label>
+    <%= form_for(todo, method: :delete, remote: true) do |f| %>
+      <button type="submit" class="destroy"></button>
+    <% end %>
+  </div>
+  <input class="edit" value="Create a TodoMVC template">
+</li>
