@@ -59,10 +59,6 @@ private
     params.require(:todo).permit(:title, :completed)
   end
 
-  def fetch_todos
-    @todos = Todo
-  end
-
   def set_current_filter(filter)
     @current_filter = filter
   end
