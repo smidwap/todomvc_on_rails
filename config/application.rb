@@ -2,9 +2,8 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
+# Assets should be precompiled for production (so we don't need the gems loaded then)
+Bundler.require(*Rails.groups(assets: %w(development test)))
 
 module Todos
   class Application < Rails::Application
