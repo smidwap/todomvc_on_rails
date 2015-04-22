@@ -15,7 +15,7 @@ feature "The homepage" do
     expect(page).to have_content("Created by Matt De Leon")
   end
 
-  scenario "should contain endit instructions" do
+  scenario "should contain edit instructions" do
     visit "/"
     expect(page).to have_content("Double-click to edit a todo")
   end
