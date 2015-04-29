@@ -51,7 +51,9 @@ end
 # gem 'debugger', group: [:development, :test]
 
 group :test do
-  gem 'rspec-rails'
+  gem 'byebug'
   gem 'capybara-rails'
   gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
 end

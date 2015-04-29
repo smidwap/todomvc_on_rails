@@ -27,6 +27,8 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     builder (3.1.4)
+    byebug (4.0.5)
+      columnize (= 0.9.0)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -41,6 +43,8 @@ GEM
       capybara-console
       database_cleaner
       exception_notification
+    childprocess (0.5.6)
+      ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -48,6 +52,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.1)
+    columnize (0.9.0)
     database_cleaner (1.4.1)
     diff-lcs (1.2.5)
     erubis (2.7.0)
@@ -60,6 +65,7 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    ffi (1.9.8)
     hike (1.2.2)
     i18n (0.6.11)
     jbuilder (1.0.2)
@@ -115,6 +121,7 @@ GEM
       rspec-mocks (~> 3.2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
+    rubyzip (1.1.7)
     sass (3.2.9)
     sass-rails (4.0.0.rc1)
       railties (>= 4.0.0.beta, < 5.0)
@@ -124,6 +131,11 @@ GEM
     sdoc (0.3.20)
       json (>= 1.1.3)
       rdoc (~> 3.10)
+    selenium-webdriver (2.45.0)
+      childprocess (~> 0.5)
+      multi_json (~> 1.0)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     sprockets (2.9.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -146,6 +158,7 @@ GEM
     uglifier (2.1.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    websocket (1.2.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -153,6 +166,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  byebug
   capybara-rails
   coffee-rails (~> 4.0.0)
   factory_girl_rails
@@ -163,6 +177,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.0.rc1)
   sdoc
+  selenium-webdriver
   sqlite3
   turbolinks
   uglifier (>= 1.3.0)

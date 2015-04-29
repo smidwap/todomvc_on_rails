@@ -26,9 +26,13 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     begin
+      # Can't use transactions since selenium tests run in a different
+      # ActiveRecord thread
+      # See: https://github.com/jnicklas/capybara#transactions-and-database-setup
       DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.clean_with(:truncation)
-      FactoryGirl.lint
+      DatabaseCleaner.clean_with :truncation
+      # They lied: https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#linting-factories
+      # FactoryGirl.lint
     ensure
       DatabaseCleaner.clean
     end
@@ -108,3 +112,15 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+# Dirty monkey patch to force all AR connections onto the same thread so
+# selenium tests work (until I can figure out a better way)
+class ActiveRecord::Base
+  mattr_accessor :shared_connection
+  @@shared_connection = nil
+
+  def self.connection
+    @@shared_connection || retrieve_connection
+  end
+end
+ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
