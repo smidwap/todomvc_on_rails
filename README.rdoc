@@ -4,4 +4,4 @@ I built the TodoMVC app according to its spec using only Rails 4 and a hint of j
 
 http://www.mattdeleon.net/
 
-Want to see TodoMVC on Rails tested with Capybara and Rspec? [Check out this fork by kashiro](https://github.com/kashiro/todomvc_on_rails_with_test).
+Want to see TodoMVC on Rails tested with Capybara and Rspec? Check out this fork by kashiro: https://github.com/kashiro/todomvc_on_rails_with_test
