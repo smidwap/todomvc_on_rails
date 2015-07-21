@@ -1,11 +1,11 @@
 $("#<%= dom_id(sub_todo) %>")
   .toggleClass("completed", <%= sub_todo.completed? %>)
-  .find("input.toggle")
+  .find("input.sub-todo-toggle")
   .prop("checked", <%= sub_todo.completed? %>);
 
 <% if complete %>
   $("#<%= dom_id(todo) %>")
     .toggleClass("completed", <%= todo.completed? %>)
-    .find("input.toggle")
+    .find("input.todo-toggle")
     .prop("checked", <%= todo.completed? %>);
 <% end %>
