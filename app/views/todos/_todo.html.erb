@@ -11,4 +11,10 @@
   <%= form_for(todo, remote: true, html: { "data-behavior" => "edit_todo_form" }) do |f| %>
     <%= f.text_field :title, class: "edit", "data-behavior" => "todo_title_input", "data-original-value" => todo.title %>
   <% end %>
+  <ul class="hidden sub-todo-list" id="sub-todo-list-<%= todo.id %>">
+    <%= form_for(SubTodo.new, url: todo_sub_todos_path(todo), method: :post, remote: true) do |f| %>
+      <%= f.text_field :title, placeholder: "Add a sub task?", class: "new-sub-todo", autofocus: true, "data-behavior" => "submit_on_enter" %>
+    <% end %>
+    <%= render todo.sub_todos.all %>
+  </ul>
 </li>
