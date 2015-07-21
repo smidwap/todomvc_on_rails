@@ -33,7 +33,7 @@ class TodosController < ApplicationController
 
   def destroy_completed
     @todos_for_destruction = Todo.completed.all
-    
+
     Todo.completed.destroy_all
   end
 
@@ -45,6 +45,8 @@ class TodosController < ApplicationController
   def toggle
     @todo = Todo.find(params[:id])
     @todo.toggle!(:completed)
+
+    @todo.sub_todos.update_all(completed: @todo.completed)
   end
 
   def toggle_all

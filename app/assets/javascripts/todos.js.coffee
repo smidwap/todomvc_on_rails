@@ -59,10 +59,10 @@ $(document).on "dblclick", "[data-behavior~=todo_title]", ->
 
   $(@).closest("li").find("[data-behavior~=todo_title_input]").focus()
 
-  $(document).on "click", "[data-behavior~=todo_title]", ->
-    $(@).closest("li")
-      .find("ul")
-      .toggleClass("hidden")
+$(document).on "click", "[data-behavior~=todo_title]", ->
+  $(@).closest("li")
+    .find("ul")
+    .toggleClass("hidden")
 
   $(@).closest("li").find("[data-behavior~=todo_title_input]").focus()
 
