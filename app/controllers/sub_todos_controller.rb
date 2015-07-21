@@ -26,6 +26,9 @@ class SubTodosController < ApplicationController
   def toggle
     @sub_todo = SubTodo.find(params[:id])
     @sub_todo.toggle!(:completed)
+
+    @todo = @sub_todo.todo
+    @complete = Todo.check_all_subs(@todo)
   end
 
   private
