@@ -180,7 +180,7 @@ label[for='toggle-all'] {
   list-style: none;
 }
 
-#todo-list li {
+#todo-list .todo {
   position: relative;
   font-size: 24px;
   border-bottom: 1px dotted #ccc;
@@ -202,11 +202,15 @@ label[for='toggle-all'] {
   margin: 0 0 0 43px;
 }
 
-#todo-list li.editing .view {
+#todo-list li.editing .todo-view {
   display: none;
 }
 
-#todo-list li .toggle {
+#todo-list li.editing ul {
+  display: none;
+}
+
+.todo .todo-toggle {
   text-align: center;
   width: 40px;
   /* auto, since non-WebKit browsers doesn't support input styling */
@@ -223,7 +227,7 @@ label[for='toggle-all'] {
   appearance: none;
 }
 
-#todo-list li .toggle:after {
+.todo .todo-view .todo-toggle:after {
   content: '✔';
   line-height: 43px; /* 40 + a couple of pixels visual adjustment */
   font-size: 20px;
@@ -231,14 +235,14 @@ label[for='toggle-all'] {
   text-shadow: 0 -1px 0 #bfbfbf;
 }
 
-#todo-list li .toggle:checked:after {
+.todo .todo-view .todo-toggle:checked:after {
   color: #85ada7;
   text-shadow: 0 1px 0 #669991;
   bottom: 1px;
   position: relative;
 }
 
-#todo-list li label {
+.todo label {
   word-break: break-word;
   padding: 15px;
   margin-left: 45px;
@@ -264,7 +268,7 @@ label[for='toggle-all'] {
   bottom: 0;
   width: 40px;
   height: 40px;
-  margin: auto 0;
+  margin: 10px 0;
   font-size: 22px;
   color: #a88a8a;
   -webkit-transition: all 0.2s;
@@ -395,7 +399,7 @@ label[for='toggle-all'] {
   }
 
   #todo-list li .toggle {
-    height: 40px;
+    // height: 40px;
   }
 
   #toggle-all {
