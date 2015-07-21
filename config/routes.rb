@@ -10,6 +10,12 @@ Todos::Application.routes.draw do
       get :completed
       delete :destroy_completed
     end
+
+    resources :sub_todos do
+      member do
+        post :toggle
+      end
+    end
   end
 
   root to: "todos#index"
