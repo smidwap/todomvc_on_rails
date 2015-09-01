@@ -206,6 +206,10 @@ label[for='toggle-all'] {
   display: none;
 }
 
+#todo-list li .view {
+  position: relative;
+}
+
 #todo-list li .toggle {
   text-align: center;
   width: 40px;

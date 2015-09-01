@@ -1,0 +1,26 @@
+.subtasks {
+  padding-left: 40px;
+}
+
+.subtask-list {
+  list-style-type: none; 
+  padding-left: 0;
+
+  &:not(:empty) {
+    border-top: 1px dotted #ccc; 
+  }
+
+  > li > .view {
+    font-size: 80%;
+  }
+}
+
+.new_subtask input[type="text"] {
+  background-color: transparent;
+  border: 0 none;
+  display: block;
+  font-size: 16px;
+  outline: none;
+  padding: 10px 20px;
+  width:100%;
+}

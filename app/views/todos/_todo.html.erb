@@ -11,4 +11,14 @@
   <%= form_for(todo, remote: true, html: { "data-behavior" => "edit_todo_form" }) do |f| %>
     <%= f.text_field :title, class: "edit", "data-behavior" => "todo_title_input", "data-original-value" => todo.title %>
   <% end %>
+
+  <div class="subtasks">
+    <%= form_for([todo, todo.subtasks.new], remote: true) do |f| %>
+      <%= f.text_field :title, placeholder: "What needs to be done?", id: "new-subtask-#{dom_id(todo)}", autofocus: true, "data-behavior" => "submit_on_enter" %>
+    <% end %>
+
+    <ul id="subtask-list-<%= dom_id(todo) %>" class="subtask-list">
+      <%= render todo.subtasks.delete_if(&:new_record?) %>
+    </ul>
+  </div>
 </li>
