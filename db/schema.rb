@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130518030840) do
+ActiveRecord::Schema.define(version: 20150901183045) do
+
+  create_table "subtasks", force: true do |t|
+    t.integer  "todo_id",                    null: false
+    t.boolean  "completed",  default: false, null: false
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "todos", force: true do |t|
     t.boolean  "completed",  default: false, null: false

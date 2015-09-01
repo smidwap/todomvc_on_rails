@@ -1,0 +1,3 @@
+$("#subtask-list-<%= dom_id(@subtask.todo) %>").append("<%= j(render(@subtask)) %>");
+
+$("#new-subtask-<%= dom_id(@subtask.todo) %>").val("");

@@ -1,0 +1,8 @@
+$("#<%= dom_id(@subtask) %>")
+  .toggleClass("completed", <%= @subtask.completed? %>)
+  .find("input.toggle")
+  .prop("checked", <%= @subtask.completed? %>);
+
+<% if @subtask.todo.subtasks.all?(&:completed?) %>
+  $("#<%= dom_id(@subtask.todo) %>").find("input.toggle").trigger('click');
+<% end %>
